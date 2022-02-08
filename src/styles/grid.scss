@@ -1,0 +1,8 @@
+.container {
+  &.base {
+    @apply px-5 mx-auto flex justify-center flex-col;
+  }
+  &.header {
+    @apply sm:p-5 mx-auto flex flex-wrap md:flex-row items-center p-4 flex-row sm:flex-col justify-between sm:justify-start;
+  }
+}

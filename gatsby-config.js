@@ -4,6 +4,13 @@ module.exports = {
         siteUrl: `https://www.yourdomain.tld`,
     },
     plugins: [
-
-    ]
+        'gatsby-plugin-postcss',
+        {
+            resolve: 'gatsby-plugin-apollo',
+            options: {
+                uri: 'https://rickandmortyapi.com/graphql'
+            }
+        }
+        // ...
+    ],
 }

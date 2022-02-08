@@ -1,0 +1,7 @@
+.character-thumb{
+    @apply w-10 border-4 border-main h-10 rounded-full;
+}
+
+.card:hover .character-thumb{
+    @apply border-highlight;
+}
