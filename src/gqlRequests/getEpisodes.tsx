@@ -25,21 +25,35 @@ export const getEpisodes = gql`
 export const GetEpisode = gql`
   query Episode($episodeId: ID!) {
   episode(id: $episodeId) {
-    air_date
+     air_date
+    created
+    episode
+    id
+    name
     characters {
       created
       gender
       id
       image
+      location {
+        created
+        dimension
+        id
+        name
+        type
+      }
       name
+      origin {
+        created
+        dimension
+        id
+        name
+        type
+      }
       species
       status
       type
     }
-    created
-    episode
-    id
-    name
   }
 }
   `

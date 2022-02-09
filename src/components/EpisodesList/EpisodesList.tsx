@@ -9,7 +9,8 @@ function EpisodesList({data}) {
             {
                 data.results.map(item => {
                     return (
-                        <Link to={item.id}> <EpisodeCard id={item.id} name={item.name} airDate={item['air_date']} characters={item.characters} key={item.id} /></Link>
+                        <Link to={item.id}> <EpisodeCard id={item.id} name={item.name} airDate={item['air_date']}
+                                                         characters={item.characters} key={item.id}/></Link>
                     )
 
                 })
