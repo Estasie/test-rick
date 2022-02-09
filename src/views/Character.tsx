@@ -1,14 +1,14 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { GetCharacterData } from "../gqlRequests/getEpisodes";
+import { getCharacterData } from "../gqlRequests/fragments/getCharacterData";
 import Loader from "../components/Loader/Loader";
 import EpisodeCardSmall from "../components/EpisodeCard/EpisodeCardSmall";
 
 export default function Character(props) {
-  const { data, error, loading } = useQuery(GetCharacterData, {
+  const { data, error, loading } = useQuery(getCharacterData, {
     variables: { characterId: `${props.id}` },
   });
- 
+
   if (loading) return <Loader />;
   else {
     const status = data.character.status.toLowerCase();
@@ -19,7 +19,10 @@ export default function Character(props) {
     return (
       <div className={"container mx-auto mt-32 flex flex-col"}>
         <div className="flex">
-          <img src={data.character.image} className={"inline-flex w-60 rounded-lg"} />
+          <img
+            src={data.character.image}
+            className={"inline-flex w-60 rounded-lg"}
+          />
           <div className="pl-20">
             <h1 className="text-4xl font-bold text-headline">
               {data.character.name}
@@ -46,13 +49,21 @@ export default function Character(props) {
           </div>
         </div>
         <div className="py-12">
-          <p className="py-6 text-2xl font-bold text-paragraph">Played in episodes</p>
-          <div className="flex flex-wrap gap-3"> 
-                {episodes.map(episode => {
-                  return(
-                    <EpisodeCardSmall key={episode.name} name={episode.name} id={episode.id} characters={episode.characters} air_date={episode.air_date} />
-                  )
-                })}
+          <p className="py-6 text-2xl font-bold text-paragraph">
+            Played in episodes
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {episodes.map((episode) => {
+              return (
+                <EpisodeCardSmall
+                  key={episode.name}
+                  name={episode.name}
+                  id={episode.id}
+                  characters={episode.characters}
+                  air_date={episode.air_date}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

@@ -1,13 +1,13 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { GetEpisodeById } from "../gqlRequests/getEpisodes";
+import { getEpisodeById } from "../gqlRequests//fragments/getEpisodeById";
 import Loader from "../components/Loader/Loader";
 import CharacterCard from "../components/CharacterCard/CharacterCard";
 import { getCharactersHash } from "../helpers/getCharactersHash";
 import { Character } from "../types/Episodes";
 
 function Episode(props: { id: string }): JSX.Element {
-  const { data, error, loading } = useQuery(GetEpisodeById, {
+  const { data, error, loading } = useQuery(getEpisodeById, {
     variables: { episodeId: `${props.id}` },
   });
 
