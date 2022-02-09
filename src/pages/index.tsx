@@ -1,6 +1,6 @@
 import * as React from "react"
 import {gql, useQuery} from '@apollo/client'
-import {getEpisodes} from "../gqlRequests/getEpisodes";
+import {GetEpisodes} from "../gqlRequests/getEpisodes";
 import HomePage from "./HomePage";
 import Loader from "../components/Loader/Loader";
 import '../styles/global.css';
@@ -9,8 +9,9 @@ import '../styles/global.css';
 
 // markup
 const App = () => {
-    const {loading, error, data} = useQuery(getEpisodes);
+    const {loading, error, data} = useQuery(GetEpisodes);
     if(loading) return <Loader />
+    else if(error) return `Something went wrong: ${error.message}`
     else return (
         <main className={"p-4 m-12 bg-main"}>
             <HomePage {...data} />

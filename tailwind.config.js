@@ -22,6 +22,9 @@ let colors = {
   },
   button: {
     DEFAULT: "#272343"
+  },
+  warning: {
+    DEFAULT: "#FF6363"
   }
 };
 

@@ -1,7 +1,7 @@
-.character-thumb{
-    @apply w-10 border-4 border-main h-10 rounded-full;
+.character-thumb {
+  @apply w-10 h-10 border-4 rounded-full border-main;
 }
 
-.card:hover .character-thumb{
-    @apply border-highlight;
+.card:hover .character-thumb, .card-small:hover .character-thumb {
+  @apply border-highlight;
 }

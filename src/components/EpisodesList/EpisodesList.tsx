@@ -1,24 +1,27 @@
-import React from 'react';
+import React from "react";
 import EpisodeCard from "../EpisodeCard/EpisodeCard";
-import {Link} from "gatsby";
+import {IEpisodes} from '../../types/Episodes';
 
-function EpisodesList({data}) {
+import { Link } from "gatsby";
 
-    return (
-        <div className={"flex flex-wrap gap-6 items-center"}>
-            {
-                data.results.map(item => {
-                    return (
-                        <Link to={item.id}> <EpisodeCard id={item.id} name={item.name} airDate={item['air_date']}
-                                                         characters={item.characters} key={item.id}/></Link>
-                    )
-
-                })
-            }
-        </div>
-
-
-    );
+function EpisodesList({ data }: {data: IEpisodes}) {
+  return (
+    <div className={"flex flex-wrap gap-6 items-center"}>
+      {data.results.map((item) => {
+        return (
+          <Link to={item.id} key={item.id}>
+            <EpisodeCard
+              id={item.id}
+              name={item.name}
+              airDate={item["air_date"]}
+              characters={item.characters}
+              key={`${item.id}${item.name}`}
+            />
+          </Link>
+        );
+      })}
+    </div>
+  );
 }
 
 export default EpisodesList;
