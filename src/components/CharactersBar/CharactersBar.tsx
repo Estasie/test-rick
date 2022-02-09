@@ -4,7 +4,7 @@ import { iCharacterBar } from "../../types/Episodes";
 
 function CharactersBar({ characters, count, names }: iCharacterBar) {
   return (
-    <div className={"flex items-center flex-wrap"}>
+    <div className={"flex items-center flex-wrap z-10"}>
       <div className={"characters-group flex-row-reverse"}>
         {characters.map((el) => {
           return <CharacterThumb key={el.id} id={el.id} src={el.image} />;

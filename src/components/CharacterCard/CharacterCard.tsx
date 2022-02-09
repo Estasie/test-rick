@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 interface CharacterCard {
   name: string,
-  species: string,
+  species?: string,
   image: string,
   id: string,
 }

@@ -1,4 +1,4 @@
-export interface Character {
+export interface ICharacter {
     id: string,
     gender: string,
     image: string,
@@ -6,10 +6,12 @@ export interface Character {
     status: string,
     type: string,
     __typename: string,
-    species?: string
+    species?: string,
+    episode?: IEpisodeData[],
+    location?: ICharacterLocationOrOrigin 
 }
 export interface iCharacterBar {
-    characters: Character[],
+    characters: ICharacter[],
     count: number,
     names: string[]
 }
@@ -18,7 +20,7 @@ export interface iCharacterBar {
 export interface IEpisodeCard {
     id: string,
     name: string,
-    characters: Character[],
+    characters: ICharacter[],
     airDate: string
 }
 interface ICharacterLocationOrOrigin{
@@ -43,7 +45,7 @@ interface IFullCharacter {
     type: string,
     __typename: string
 }
-interface IEpisodeData{
+export interface IEpisodeData{
     air_date: string,
     characters: IFullCharacter[],
     created: string,
@@ -59,7 +61,7 @@ export interface IEpisodeFullData {
 export interface IEpisodesResult {
     __typename: string;
     air_date: string;
-    characters: Character[];
+    characters: ICharacter[];
     created: Date;
     episode: string;
     id: string;
@@ -74,6 +76,6 @@ export interface IEpisodes{
 export interface IEpisodeCardSmall{
     name: string,
     id: string,
-    characters: Character[],
+    characters: ICharacter[],
     air_date: string
 }

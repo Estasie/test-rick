@@ -1,19 +1,23 @@
-import React from "react";
+import React, {FC} from "react";
 import { IEpisodeCard } from "../../types/Episodes";
 import { Link } from "gatsby";
 import "./card.css";
 
-import CharacterThumb from "../thumb/CharacterThumb";
 import CharactersBar from "../CharactersBar/CharactersBar";
 
-function EpisodeCard({ id, airDate, characters, name }: IEpisodeCard) {
+const EpisodeCard: FC<IEpisodeCard> = (props) => {
+  const {id, airDate, characters, name} = props;
   // to show characters besides rick and morty
   const first5characters = characters.slice(2, 7);
   const charactersCount = characters.length - 5;
   const firstTwoNames = [characters[2].name, characters[3].name];
 
   return (
-    <Link to={`/episodes/${id}`}>
+    <div className="relative">
+      <Link
+        to={`/episodes/${id}`}
+        className={"absolute w-full h-full -p-6"}
+      ></Link>
       <div className={"card"}>
         <p className={"text-paragraph font-bold text-base"}>{`Ep. ${id}`}</p>
         <div className={"flex flex-col"}>
@@ -26,7 +30,7 @@ function EpisodeCard({ id, airDate, characters, name }: IEpisodeCard) {
           names={firstTwoNames}
         />
       </div>
-    </Link>
+    </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const getCharacterData = gql`
-  query Character($characterId: ID!) {
+  query getCharacterData($characterId: ID!) {
     character(id: $characterId) {
       created
       gender

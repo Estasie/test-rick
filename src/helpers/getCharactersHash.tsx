@@ -3,7 +3,9 @@ import { IEpisodeFullData } from "../types/Episodes";
 
 export function getCharactersHash(data: IEpisodeFullData) {
   const charactersByLocationsHash = {};
-  data.episode.characters.forEach((character) => {
+  const characters = data.episode.characters;
+
+  characters.forEach((character) => {
     const location = character.location.name;
     const characterName = character.name;
     const characterImage = character.image;

@@ -4,19 +4,16 @@ import {getEpisodes} from "../gqlRequests/fragments/getEpisodes";
 import HomePage from "./HomePage";
 import Loader from "../components/Loader/Loader";
 import '../styles/global.css';
+import Layout from "../components/Layout/Layout";
 
 // data
 
 // markup
-const App = () => {
-    const {loading, error, data} = useQuery(getEpisodes);
-    if(loading) return <Loader />
-    else if(error) return `Something went wrong: ${error.message}`
-    else return (
-        <main className={"p-4 m-12 bg-main"}>
-            <HomePage {...data} />
-        </main>
+const App: React.FC = () => {
+    return(
+        <Layout component={<HomePage />} />
     )
+
 }
 
 export default App;

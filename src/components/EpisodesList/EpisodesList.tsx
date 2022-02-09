@@ -1,23 +1,24 @@
-import React from "react";
+import React, {FC} from "react";
 import EpisodeCard from "../EpisodeCard/EpisodeCard";
-import {IEpisodes} from '../../types/Episodes';
+import { IEpisodes } from "../../types/Episodes";
 
-import { Link } from "gatsby";
+interface IEpisodesList {
+  episodes: IEpisodes
+}
+const EpisodesList : FC<IEpisodesList> = (props) => {
+  const {episodes} = props;
 
-function EpisodesList({ data }: {data: IEpisodes}) {
   return (
     <div className={"flex flex-wrap gap-6 items-center"}>
-      {data.results.map((item) => {
+      {episodes.results.map((item) => {
         return (
-          <Link to={item.id} key={item.id}>
-            <EpisodeCard
-              id={item.id}
-              name={item.name}
-              airDate={item["air_date"]}
-              characters={item.characters}
-              key={`${item.id}${item.name}`}
-            />
-          </Link>
+          <EpisodeCard
+            id={item.id}
+            name={item.name}
+            airDate={item["air_date"]}
+            characters={item.characters}
+            key={`${item.id}${item.name}`}
+          />
         );
       })}
     </div>

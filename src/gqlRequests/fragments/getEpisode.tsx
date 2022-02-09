@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
-export const getEpisodeById = gql`
-  query Episode($episodeId: ID!) {
+export const getEpisode = gql`
+  query getEpisode($episodeId: ID!) {
     episode(id: $episodeId) {
       air_date
       created
